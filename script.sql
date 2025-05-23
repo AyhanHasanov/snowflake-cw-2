@@ -57,7 +57,7 @@ FROM manager_toolset.raw_orders_json,
 LATERAL FLATTEN(INPUT => json_payload);
 
 CREATE TABLE td_order_items AS
-SELECT DISTINCT
+SELECT
   o.order_id,
   f.value:"product_id"::STRING AS product_id,
   f.value:"name"::STRING AS name,
